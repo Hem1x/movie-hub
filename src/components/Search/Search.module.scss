@@ -1,15 +1,14 @@
 .search {
-  max-width: 730px;
-  padding: 13px 21px;
-  background-color: white;
-  border-radius: 1rem;
-  margin: 1.5rem auto;
-
   display: flex;
+  margin: 1.5rem auto;
+  border-radius: 1rem;
+  padding: 13px 21px;
+  max-width: 730px;
+  background-color: white;
 
   input {
-    font-size: 1.1rem;
     width: 100%;
+    font-size: 1.1rem;
   }
 
   .close {

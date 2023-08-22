@@ -1,8 +1,7 @@
 .sideBar {
-  position: relative;
+  position: fixed;
   width: 103px;
   height: 100vh;
-  position: fixed;
   background-color: #292926;
 
   .nav {
@@ -15,8 +14,8 @@
       transition: all 0.1s ease-in-out;
 
       &:hover {
-        scale: 1.1;
         cursor: pointer;
+        scale: 1.1;
       }
     }
   }
