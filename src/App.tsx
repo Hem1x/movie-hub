@@ -1,12 +1,18 @@
 import React from 'react';
 import SideBar from './components/SideBar/SideBar';
-import Search from './components/Search/Search';
+import Home from './pages/Home';
 
 const App = () => {
   return (
-    <div>
-      <Search />
-    </div>
+    <>
+      <div
+        style={{
+          display: 'flex',
+        }}>
+        <SideBar />
+        <Home />
+      </div>
+    </>
   );
 };
 
