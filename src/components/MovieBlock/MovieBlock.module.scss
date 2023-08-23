@@ -9,26 +9,26 @@
     .money {
       display: flex;
       justify-content: space-between;
-      gap: 60px;
+      width: 100%;
       font-weight: 500;
       font-size: 2rem;
-
-      width: 100%;
+      gap: 60px;
 
       .budget {
-        width: 670px;
-        border-radius: 20px;
-        padding: 20px 40px;
         display: flex;
         justify-content: space-between;
         border: 1px solid #fff;
-      }
-      .collected {
-        width: 670px;
         border-radius: 20px;
         padding: 20px 40px;
+        width: 670px;
+      }
+
+      .collected {
         display: flex;
         justify-content: space-between;
+        border-radius: 20px;
+        padding: 20px 40px;
+        width: 670px;
         background-color: #00802b;
       }
     }
