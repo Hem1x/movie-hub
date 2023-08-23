@@ -1,12 +1,33 @@
 import React from 'react';
 import styles from './MovieBlock.module.scss';
 import General from './General/General';
+import { useParams } from 'react-router-dom';
+import {
+  useGetMovieByIdQuery,
+  useGetMovieMoneyByIdQuery,
+} from '../../store/moviesApi/moviesApi';
+import { numberWithSpaces } from '../../utils';
 
 interface MovieBlockProps {}
 
 const MovieBlock = ({}: MovieBlockProps) => {
+  const { id } = useParams();
+  const { data } = useGetMovieMoneyByIdQuery(id!); // [] [world] [budget] [world, budget]
+  const filteredMoney = data?.filter(
+    (obj) => obj.type === 'BUDGET' || obj.type === 'WORLD',
+  );
+  const MoneyDataNames = filteredMoney?.map((obj) => obj.type);
+  const hasBuget = MoneyDataNames?.includes('BUDGET');
+  const hasWorld = MoneyDataNames?.includes('WORLD');
+  const budget = hasBuget
+    ? filteredMoney?.filter((obj) => obj.type === 'BUDGET')[0].amount
+    : 'Нет данных';
+  const world = hasWorld
+    ? filteredMoney?.filter((obj) => obj.type === 'WORLD')[0].amount
+    : 'Нет данных';
+
   return (
-    <div className={styles.movieBlock} style={{ height: 2000 }}>
+    <div className={styles.movieBlock}>
       <General />
 
       <div className={styles.info}>
@@ -14,16 +35,20 @@ const MovieBlock = ({}: MovieBlockProps) => {
         <div className={styles.money}>
           <div className={styles.budget}>
             <span>Бюджет</span>
-            <span>100 000 000 $</span>
+            <span>
+              {typeof budget === 'number' ? numberWithSpaces(budget) + ' $' : budget}
+            </span>
           </div>
           <div className={styles.collected}>
             <span>Собрано</span>
-            <span>1 000 000 000 $</span>
+            <span>
+              {typeof world === 'number' ? numberWithSpaces(world) + ' $' : world}
+            </span>
           </div>
         </div>
       </div>
 
-      <div className={styles.trailer}>
+      {/* <div className={styles.trailer}>
         <h1>Трейлер</h1>
         <div className={styles.video}>
           <iframe
@@ -35,7 +60,7 @@ const MovieBlock = ({}: MovieBlockProps) => {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen></iframe>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -1,9 +1,12 @@
 import React from 'react';
 import Search from '../components/Search/Search';
 import Banner from '../components/Banner/Banner';
-import PopularList from '../components/PopularList/PopularList';
-import AwaitList from '../components/AwaitList/AwaitList';
-import TopList from '../components/TopList/TopList';
+import {
+  useGetAwaitMovieListQuery,
+  useGetPopularMovieListQuery,
+  useGetTopMovieListQuery,
+} from '../store/moviesApi/moviesApi';
+import List from '../components/List/List';
 
 const Home = () => {
   return (
@@ -16,9 +19,9 @@ const Home = () => {
           flexDirection: 'column',
           gap: '6rem',
         }}>
-        <PopularList />
-        <AwaitList />
-        <TopList />
+        <List title="Популярное" queryHook={useGetPopularMovieListQuery} />
+        <List title="Топ 250 фильмов" queryHook={useGetTopMovieListQuery} />
+        <List title="Скоро выйдут" queryHook={useGetAwaitMovieListQuery} />
       </div>
     </>
   );

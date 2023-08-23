@@ -1,25 +1,31 @@
 import React from 'react';
 import styles from './ListItem.module.scss';
+import { IMovie } from '../../@types/movie';
+import { Link } from 'react-router-dom';
 
-interface ListItemProps {}
+interface ListItemProps {
+  movie: IMovie;
+}
 
-const ListItem = ({}: ListItemProps) => {
+const ListItem = ({ movie }: ListItemProps) => {
   return (
     <li className={styles.listItem}>
       <div className={styles.visible}>
         <div
           className={styles.image}
           style={{
-            backgroundImage:
-              "url('https://avatars.mds.yandex.net/get-kinopoisk-image/4486454/c5292109-642c-4ab0-894a-cc304e1bcec4/360')",
+            backgroundImage: `url('${movie.posterUrlPreview}')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
         />
-        <div className={styles.rating}>9.0</div>
+        <div className={styles.rating}>{movie.rating}</div>
       </div>
       <div className={styles.overlay}>
-        <button>Подробнее</button>
+        <h1>{movie.nameRu}</h1>
+        <Link to={`/movie/${movie.filmId}`}>
+          <button>Подробнее</button>
+        </Link>
       </div>
     </li>
   );

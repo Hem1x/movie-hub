@@ -1,4 +1,6 @@
 .movieBlock {
+  max-width: 1400px;
+
   .info {
     margin-bottom: 5rem;
 
@@ -37,8 +39,8 @@
   .trailer {
     .video {
       margin: 3rem auto;
-      width: 50%;
-      height: 50vh;
+      width: 100%;
+      height: 80vh;
     }
   }
 }
