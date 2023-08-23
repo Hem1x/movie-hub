@@ -1,0 +1,44 @@
+.movieBlock {
+  .info {
+    margin-bottom: 5rem;
+
+    h1 {
+      margin-bottom: 3rem;
+    }
+
+    .money {
+      display: flex;
+      justify-content: space-between;
+      gap: 60px;
+      font-weight: 500;
+      font-size: 2rem;
+
+      width: 100%;
+
+      .budget {
+        width: 670px;
+        border-radius: 20px;
+        padding: 20px 40px;
+        display: flex;
+        justify-content: space-between;
+        border: 1px solid #fff;
+      }
+      .collected {
+        width: 670px;
+        border-radius: 20px;
+        padding: 20px 40px;
+        display: flex;
+        justify-content: space-between;
+        background-color: #00802b;
+      }
+    }
+  }
+
+  .trailer {
+    .video {
+      margin: 3rem auto;
+      width: 50%;
+      height: 50vh;
+    }
+  }
+}
