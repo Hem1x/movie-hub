@@ -1,7 +1,13 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { IMovie, ServerResponse, ServerResponseBudget } from '../../@types/movie';
+import {
+  IMovie,
+  Image,
+  ServerResponse,
+  ServerResponseBudget,
+  ServerResponseImages,
+} from '../../@types/movie';
 import { IMovieFull } from '../../@types/movieFull';
-import { BudgetQuery, MovieMoney } from '../../@types/queries';
+import { MovieMoney } from '../../@types/queries';
 
 const generateMovieQuery = (type: string) => ({
   url: '/top',
@@ -64,6 +70,16 @@ export const moviesApi = createApi({
       }),
       transformResponse: (response: ServerResponseBudget<MovieMoney>) => response.items,
     }),
+    getMovieImagesById: builder.query<Image[], string>({
+      query: (id: string) => ({
+        url: `/${id}/images`,
+        headers: {
+          'X-API-KEY': '46e04e96-b48f-46b0-8f09-177b11d32fa1',
+          'Content-Type': 'application/json',
+        },
+      }),
+      transformResponse: (response: ServerResponseImages<Image>) => response.items,
+    }),
   }),
 });
 
@@ -73,4 +89,5 @@ export const {
   useGetTopMovieListQuery,
   useGetMovieByIdQuery,
   useGetMovieMoneyByIdQuery,
+  useGetMovieImagesByIdQuery,
 } = moviesApi;

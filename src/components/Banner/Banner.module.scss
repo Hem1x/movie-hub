@@ -7,9 +7,6 @@
     position: relative;
     height: 430px;
     max-width: 1400px;
-    background-image: url('https://ponylike.ru/wp-content/uploads/2022/05/00-zelenaya-milya-fakty-kniga-film.jpg');
-    background-position: center;
-    background-size: cover;
 
     &::before {
       content: '';
@@ -54,7 +51,7 @@
     .title {
       margin: 12px 0;
       font-weight: 700;
-      font-size: 70px;
+      font-size: 3rem;
       text-shadow: 0 3px 20px #000;
     }
 

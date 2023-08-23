@@ -9,6 +9,17 @@ export interface ServerResponseBudget<T> {
   items: T[];
 }
 
+export interface ServerResponseImages<T> {
+  total: number;
+  totalPages: number;
+  items: T[];
+}
+
+export interface Image {
+  imageUrl: string;
+  previewUrl: string;
+}
+
 export interface IMovie {
   filmId: number;
   nameRu: string;
