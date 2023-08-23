@@ -12,7 +12,7 @@ const App = () => {
         }}>
         <SideBar />
         <div className="wrapper">
-          {/* <Home /> */}
+          <Home />
           <SingleMovie />
         </div>
       </div>

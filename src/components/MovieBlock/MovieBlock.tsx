@@ -23,7 +23,7 @@ const MovieBlock = ({}: MovieBlockProps) => {
         </div>
       </div>
 
-      <div className={styles.trailer}>
+      {/* <div className={styles.trailer}>
         <h1>Трейлер</h1>
         <div className={styles.video}>
           <iframe
@@ -35,7 +35,7 @@ const MovieBlock = ({}: MovieBlockProps) => {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen></iframe>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

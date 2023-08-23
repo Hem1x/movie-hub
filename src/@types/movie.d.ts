@@ -1,0 +1,29 @@
+export interface ServerResponse<T> {
+  pagesCount: number;
+  films: T[];
+}
+
+export interface IMovie {
+  filmId: number;
+  nameRu: string;
+  nameEn: string;
+  year: string;
+  filmLength: string;
+  countries: Country[];
+  genres: Genre[];
+  rating: string;
+  ratingVoteCount: number;
+  posterUrl: string;
+  posterUrlPreview: string;
+  ratingChange: any;
+  isRatingUp: any;
+  isAfisha: number;
+}
+
+interface Country {
+  country: string;
+}
+
+interface Genre {
+  genre: string;
+}
