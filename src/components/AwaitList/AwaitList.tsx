@@ -1,14 +1,14 @@
 import React from 'react';
-import styles from './PopularList.module.scss';
+import styles from './AwaitList.module.scss';
 import ListItem from '../ListItem/ListItem';
 
-interface PopularListProps {}
+interface AwaitListProps {}
 
-const PopularList = ({}: PopularListProps) => {
+const AwaitList = ({}: AwaitListProps) => {
   return (
-    <div className={styles.popularList}>
+    <div className={styles.awaitList}>
       <div className={styles.title}>
-        <h1>Популярное</h1>
+        <h1>Скоро выйдут</h1>
         <h2>Показать всё</h2>
       </div>
 
@@ -22,4 +22,4 @@ const PopularList = ({}: PopularListProps) => {
     </div>
   );
 };
-export default PopularList;
+export default AwaitList;

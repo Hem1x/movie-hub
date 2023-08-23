@@ -1,9 +1,11 @@
 import React from 'react';
-import styles from './PopularListItem.module.scss';
+import styles from './ListItem.module.scss';
 
-const PopularListItem = () => {
+interface ListItemProps {}
+
+const ListItem = ({}: ListItemProps) => {
   return (
-    <li className={styles.popularListItem}>
+    <li className={styles.listItem}>
       <div className={styles.visible}>
         <div
           className={styles.image}
@@ -23,4 +25,4 @@ const PopularListItem = () => {
   );
 };
 
-export default PopularListItem;
+export default ListItem;

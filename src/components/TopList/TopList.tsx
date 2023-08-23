@@ -1,14 +1,14 @@
 import React from 'react';
-import styles from './PopularList.module.scss';
+import styles from './TopList.module.scss';
 import ListItem from '../ListItem/ListItem';
 
-interface PopularListProps {}
+interface TopListProps {}
 
-const PopularList = ({}: PopularListProps) => {
+const TopList = ({}: TopListProps) => {
   return (
-    <div className={styles.popularList}>
+    <div className={styles.topList}>
       <div className={styles.title}>
-        <h1>Популярное</h1>
+        <h1>Топ 250 фильмов</h1>
         <h2>Показать всё</h2>
       </div>
 
@@ -22,4 +22,4 @@ const PopularList = ({}: PopularListProps) => {
     </div>
   );
 };
-export default PopularList;
+export default TopList;
