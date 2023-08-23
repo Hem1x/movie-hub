@@ -19,6 +19,7 @@ const MovieBlock = ({}: MovieBlockProps) => {
   const MoneyDataNames = filteredMoney?.map((obj) => obj.type);
   const hasBuget = MoneyDataNames?.includes('BUDGET');
   const hasWorld = MoneyDataNames?.includes('WORLD');
+
   const budget = hasBuget
     ? filteredMoney?.filter((obj) => obj.type === 'BUDGET')[0].amount
     : 'Нет данных';

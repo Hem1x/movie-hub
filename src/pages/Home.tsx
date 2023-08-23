@@ -11,7 +11,6 @@ import List from '../components/List/List';
 const Home = () => {
   return (
     <>
-      <Search />
       <Banner />
       <div
         style={{

@@ -1,18 +1,18 @@
 .banner {
   position: relative;
-  margin-bottom: 3rem;
+  margin: 3rem 0;
   height: 430px;
 
   .image {
     position: relative;
     height: 430px;
     max-width: 1400px;
-    background-image: url("https://ponylike.ru/wp-content/uploads/2022/05/00-zelenaya-milya-fakty-kniga-film.jpg");
+    background-image: url('https://ponylike.ru/wp-content/uploads/2022/05/00-zelenaya-milya-fakty-kniga-film.jpg');
     background-position: center;
     background-size: cover;
 
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       left: 0;
       top: 0;

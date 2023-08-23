@@ -15,7 +15,11 @@ const General = ({}: GeneralProps) => {
       <div className={styles.poster}>
         <img src={`${data?.posterUrl}`} alt="poster" />
         <div className={styles.age}>
-          Рейтинг: {data?.ratingMpaa ? data.ratingMpaa.toUpperCase() : 'нет данных'}
+          {data?.ratingAgeLimits
+            ? data?.ratingAgeLimits.slice(3) + '+'
+            : data?.ratingMpaa
+            ? data.ratingMpaa.toUpperCase()
+            : 'нет данных'}
         </div>
       </div>
 
