@@ -1,0 +1,52 @@
+.popularListItem {
+  position: relative;
+  max-width: 250px;
+
+  .visible {
+    .image {
+      height: 370px;
+    }
+
+    .rating {
+      position: absolute;
+      top: 7px;
+      left: 7px;
+      background-color: #009533;
+      font-size: 20px;
+      padding: 5px 12px;
+    }
+  }
+
+  .overlay {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    button {
+      padding: 14px 24px;
+      border: 2px solid #fe5400;
+      font-size: 20px;
+      background-color: rgba($color: #000000, $alpha: 0);
+      color: #fff;
+      border-radius: 10px;
+      font-weight: 600;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

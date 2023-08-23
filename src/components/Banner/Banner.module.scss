@@ -3,17 +3,18 @@
   margin: 0 auto;
   height: 430px;
   max-width: 1400px;
+  margin-bottom: 3rem;
 
   .image {
     position: relative;
-    width: 1400px;
+    max-width: 1400px;
     height: 430px;
-    background-image: url("https://ponylike.ru/wp-content/uploads/2022/05/00-zelenaya-milya-fakty-kniga-film.jpg");
+    background-image: url('https://ponylike.ru/wp-content/uploads/2022/05/00-zelenaya-milya-fakty-kniga-film.jpg');
     background-position: center;
     background-size: cover;
 
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       left: 0;
       top: 0;
@@ -79,7 +80,7 @@
       &:hover {
         border: 2px solid #e9601d;
         color: #e9601d;
-        background-color: rgb(0 0 0 / 100%);
+        background-color: rgb(0 0 0 / 0%);
         cursor: pointer;
       }
     }
