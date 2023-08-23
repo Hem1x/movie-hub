@@ -1,11 +1,10 @@
 .nav {
-  width: 105px;
-  height: 100vh;
-  background-color: #292926;
-
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 105px;
+  height: 100vh;
+  background-color: #292926;
   gap: 2.5rem;
 
   .navItem {

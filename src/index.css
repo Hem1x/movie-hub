@@ -15,7 +15,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: black;
+  color: #fff;
+  background-color: #000;
 }
 
 code {
@@ -26,7 +27,18 @@ img {
   display: block;
 }
 
-input {
+input,
+button {
   outline: none;
   border: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
 }
