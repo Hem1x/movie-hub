@@ -7,13 +7,11 @@ import TopList from '../components/TopList/TopList';
 
 const Home = () => {
   return (
-    <div style={{ height: '100vh', flex: 1, overflow: 'auto' }}>
+    <>
       <Search />
       <Banner />
       <div
         style={{
-          maxWidth: 1400,
-          margin: '0 auto',
           display: 'flex',
           flexDirection: 'column',
           gap: '6rem',
@@ -22,7 +20,7 @@ const Home = () => {
         <AwaitList />
         <TopList />
       </div>
-    </div>
+    </>
   );
 };
 

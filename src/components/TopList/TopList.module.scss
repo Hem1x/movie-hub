@@ -1,6 +1,12 @@
 .topList {
   width: 100%;
 
+  .list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-column-gap: 36px;
+  }
+
   .title {
     display: flex;
     justify-content: space-between;
@@ -18,11 +24,5 @@
         cursor: pointer;
       }
     }
-  }
-
-  .list {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-column-gap: 15px;
   }
 }

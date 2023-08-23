@@ -37,3 +37,15 @@ h6,
 p {
   margin: 0;
 }
+
+.wrapper {
+  flex: 1;
+  overflow: auto;
+  margin: 0 auto;
+  height: 100vh;
+  max-width: 1400px;
+}
+
+::-webkit-scrollbar {
+  width: 0px; /*Толщина скролла*/
+}
