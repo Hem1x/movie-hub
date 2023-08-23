@@ -1,0 +1,98 @@
+.general {
+  display: flex;
+  margin: 5rem 0;
+
+  .poster {
+    margin-right: 3.5rem;
+    max-width: 350px;
+
+    img {
+      border-radius: 20px 20px 0 0;
+      width: 100%;
+    }
+
+    .age {
+      padding: 14px 0;
+      font-weight: 700;
+      font-size: 1.5rem;
+      text-align: center;
+      background-color: #af2727;
+    }
+  }
+
+  .movieInfo {
+    display: flex;
+    flex-direction: column;
+
+    .tags {
+      display: flex;
+      margin-bottom: 20px;
+      font-weight: 700;
+      font-size: 1.5rem;
+      gap: 15px;
+
+      .rating {
+        border-radius: 5px;
+        padding: 3px 10px;
+        background-color: #009533;
+      }
+
+      .imdbRating {
+        border-radius: 5px;
+        padding: 3px 20px;
+        color: black;
+        background-color: #ddbc28;
+      }
+
+      .new {
+        border-radius: 5px;
+        padding: 3px 10px;
+        font-weight: 500;
+        background-color: #7e35b7;
+      }
+    }
+
+    .textInfo {
+      h1 {
+        margin-bottom: 0.5rem;
+        font-size: 4.5rem;
+      }
+
+      h2 {
+        margin-bottom: 2rem;
+        font-weight: 400;
+        font-size: 2rem;
+      }
+
+      p {
+        margin-bottom: 2rem;
+        font-size: 20px;
+        line-height: 30px;
+      }
+
+      .genres {
+        display: flex;
+        margin-bottom: 2rem;
+        gap: 15px;
+
+        .genre {
+          border-radius: 10px;
+          padding: 0.7rem 1.5rem;
+          font-weight: 500;
+          font-size: 19px;
+          background-color: #465793;
+        }
+      }
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      p {
+        font-size: 20px;
+      }
+    }
+  }
+}

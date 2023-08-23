@@ -1,0 +1,28 @@
+.topList {
+  width: 100%;
+
+  .list {
+    display: grid;
+    grid-column-gap: 36px;
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+
+    h2 {
+      font-weight: 500;
+      font-size: 20px;
+      opacity: 0.5;
+      transition: all 0.1s ease-in-out;
+
+      &:hover {
+        opacity: 0.8;
+        cursor: pointer;
+      }
+    }
+  }
+}
