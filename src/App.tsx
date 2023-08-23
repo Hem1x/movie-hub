@@ -2,6 +2,7 @@ import React from 'react';
 import SideBar from './components/SideBar/SideBar';
 import Home from './pages/Home';
 import SingleMovie from './pages/SingleMovie';
+import { Routes, Route } from 'react-router-dom';
 
 const App = () => {
   return (
@@ -12,8 +13,10 @@ const App = () => {
         }}>
         <SideBar />
         <div className="wrapper">
-          <Home />
-          <SingleMovie />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/movie/:id" element={<SingleMovie />} />
+          </Routes>
         </div>
       </div>
     </>

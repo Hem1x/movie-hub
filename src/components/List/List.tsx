@@ -20,7 +20,7 @@ const List = ({ queryHook, title }: ListProps) => {
 
       <ul className={styles.moviesList}>
         {data?.map((movie: IMovie) => (
-          <ListItem movie={movie} />
+          <ListItem key={movie.filmId} movie={movie} />
         ))}
       </ul>
     </div>

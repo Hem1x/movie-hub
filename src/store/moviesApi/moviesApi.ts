@@ -1,5 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { IMovie, ServerResponse } from '../../@types/movie';
+import { IMovie, ServerResponse, ServerResponseBudget } from '../../@types/movie';
+import { IMovieFull } from '../../@types/movieFull';
+import { BudgetQuery, MovieMoney } from '../../@types/queries';
 
 const generateMovieQuery = (type: string) => ({
   url: '/top',
@@ -43,6 +45,25 @@ export const moviesApi = createApi({
       transformResponse: (response: ServerResponse<IMovie>) => response.films.slice(0, 5),
       providesTags: (result) => providesTags(result),
     }),
+    getMovieById: builder.query<IMovieFull, string>({
+      query: (id: string) => ({
+        url: `/${id}`,
+        headers: {
+          'X-API-KEY': '46e04e96-b48f-46b0-8f09-177b11d32fa1',
+          'Content-Type': 'application/json',
+        },
+      }),
+    }),
+    getMovieMoneyById: builder.query<MovieMoney[], string>({
+      query: (id: string) => ({
+        url: `/${id}/box_office`,
+        headers: {
+          'X-API-KEY': '46e04e96-b48f-46b0-8f09-177b11d32fa1',
+          'Content-Type': 'application/json',
+        },
+      }),
+      transformResponse: (response: ServerResponseBudget<MovieMoney>) => response.items,
+    }),
   }),
 });
 
@@ -50,4 +71,6 @@ export const {
   useGetPopularMovieListQuery,
   useGetAwaitMovieListQuery,
   useGetTopMovieListQuery,
+  useGetMovieByIdQuery,
+  useGetMovieMoneyByIdQuery,
 } = moviesApi;

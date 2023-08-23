@@ -1,6 +1,12 @@
+import { ServerResponse } from './movie.d';
 export interface ServerResponse<T> {
   pagesCount: number;
   films: T[];
+}
+
+export interface ServerResponseBudget<T> {
+  total: number;
+  items: T[];
 }
 
 export interface IMovie {

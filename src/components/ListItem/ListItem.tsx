@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './ListItem.module.scss';
 import { IMovie } from '../../@types/movie';
+import { Link } from 'react-router-dom';
 
 interface ListItemProps {
   movie: IMovie;
@@ -22,7 +23,9 @@ const ListItem = ({ movie }: ListItemProps) => {
       </div>
       <div className={styles.overlay}>
         <h1>{movie.nameRu}</h1>
-        <button>Подробнее</button>
+        <Link to={`/movie/${movie.filmId}`}>
+          <button>Подробнее</button>
+        </Link>
       </div>
     </li>
   );
