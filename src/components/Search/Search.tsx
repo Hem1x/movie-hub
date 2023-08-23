@@ -16,7 +16,7 @@ const Search = ({}: SearchProps) => {
       />
       {value && (
         <div className={styles.close} onClick={() => setValue('')}>
-          <CloseIcon htmlColor="#909090" />
+          <CloseIcon htmlColor="#909090" style={{ height: '100%' }} />
         </div>
       )}
     </div>
