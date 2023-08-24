@@ -1,11 +1,14 @@
 import React from 'react';
 import styles from './List.module.scss';
 import ListItem from '../ListItem/ListItem';
-import { IMovie } from '../../@types/movie';
+import { IMovie } from '../../types/movie';
+import { Link } from 'react-router-dom';
+import { ListEnum } from '../../types/list';
+import { nameToList } from '../../utils/nameToList';
 
 interface ListProps {
   queryHook: any;
-  title: string;
+  title: ListEnum;
 }
 
 const List = ({ queryHook, title }: ListProps) => {
@@ -14,8 +17,10 @@ const List = ({ queryHook, title }: ListProps) => {
   return (
     <div className={styles.list}>
       <div className={styles.title}>
-        <h1>{title}</h1>
-        <h2>Показать всё</h2>
+        <h1>{nameToList(title)}</h1>
+        <Link to={`${title}`}>
+          <div className={styles.seeAll}>Показать всё</div>
+        </Link>
       </div>
 
       <ul className={styles.moviesList}>

@@ -1,17 +1,31 @@
 import React from 'react';
 import styles from './SideBar.module.scss';
-import { home, logo, search } from '../../assets';
-import { NavLink } from 'react-router-dom';
+import { home, homeActive, logo, search, searchActive } from '../../assets';
+import { NavLink, useLocation } from 'react-router-dom';
 
-const SideBar: React.FC = () => (
-  <div className={styles.nav}>
-    <img className={styles.logo} src={logo} alt="logo" />
-    <NavLink to="/">
-      <img className={styles.navItem} src={home} alt="home" />
-    </NavLink>
+const SideBar: React.FC = () => {
+  const location = useLocation();
 
-    <img className={styles.navItem} src={search} alt="search" />
-  </div>
-);
+  return (
+    <div className={styles.nav}>
+      <img className={styles.logo} src={logo} alt="logo" />
+      <NavLink to="/movies">
+        <img
+          className={styles.navItem}
+          src={location.pathname.includes('/movies') ? homeActive : home}
+          alt="home"
+        />
+      </NavLink>
+
+      <NavLink to="/search">
+        <img
+          className={styles.navItem}
+          src={location.pathname.includes('/search') ? searchActive : search}
+          alt="search"
+        />
+      </NavLink>
+    </div>
+  );
+};
 
 export default SideBar;

@@ -1,12 +1,10 @@
 import React from 'react';
 import styles from './MovieBlock.module.scss';
 import General from './General/General';
-import { useParams } from 'react-router-dom';
-import {
-  useGetMovieByIdQuery,
-  useGetMovieMoneyByIdQuery,
-} from '../../store/moviesApi/moviesApi';
+import { Link, useParams } from 'react-router-dom';
+import { useGetMovieMoneyByIdQuery } from '../../store/moviesApi/moviesApi';
 import { numberWithSpaces } from '../../utils';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 interface MovieBlockProps {}
 
@@ -19,6 +17,7 @@ const MovieBlock = ({}: MovieBlockProps) => {
   const MoneyDataNames = filteredMoney?.map((obj) => obj.type);
   const hasBuget = MoneyDataNames?.includes('BUDGET');
   const hasWorld = MoneyDataNames?.includes('WORLD');
+
   const budget = hasBuget
     ? filteredMoney?.filter((obj) => obj.type === 'BUDGET')[0].amount
     : 'Нет данных';

@@ -1,0 +1,27 @@
+.container {
+  margin: 2rem 0;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .back {
+    display: flex;
+    align-items: baseline;
+    gap: 2rem;
+    margin-bottom: 2rem;
+
+    div:first-child {
+      opacity: 0.5;
+      cursor: pointer;
+    }
+  }
+
+  .movies {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2rem;
+  }
+}
