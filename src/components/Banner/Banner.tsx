@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styles from './Banner.module.scss';
 import { useGetPopularMovieQuery } from '../../store/moviesApi/moviesApi';
 import { CircularProgress } from '@mui/material';
+import Loader from '../Loader/Loader';
 
 interface BannerProps {}
 
@@ -12,20 +13,7 @@ const Banner = ({}: BannerProps) => {
   const genres = movie?.genres.map((obj) => obj.genre);
 
   if (isLoading) {
-    return (
-      <div
-        style={{
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
-        <div>
-          <CircularProgress />
-        </div>
-      </div>
-    );
+    return <Loader />;
   }
 
   return (

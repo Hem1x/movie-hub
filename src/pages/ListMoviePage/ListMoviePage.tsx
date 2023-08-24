@@ -8,6 +8,7 @@ import styles from './ListMoviePage.module.scss';
 import { Pagination } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { IMovie } from '../../types/movie';
+import Loader from '../../components/Loader/Loader';
 
 interface ListMoviePageProps {
   queryHook: any;
@@ -15,7 +16,7 @@ interface ListMoviePageProps {
 
 const ListMoviePage = ({ queryHook }: ListMoviePageProps) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const { data } = queryHook(currentPage.toString());
+  const { data, isLoading } = queryHook(currentPage.toString());
   const { pathname } = useLocation();
 
   const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
@@ -23,6 +24,10 @@ const ListMoviePage = ({ queryHook }: ListMoviePageProps) => {
   };
 
   const navigate = useNavigate();
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <div className={styles.container}>
