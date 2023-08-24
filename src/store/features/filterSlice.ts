@@ -3,9 +3,10 @@ import { IState, movieTypeEnum, orderEnum } from './types';
 
 const initialState: IState = {
   search: '',
-  movieType: null,
-  order: null,
-  genresId: null,
+  movieType: movieTypeEnum.FILM,
+  order: orderEnum.RATING,
+  genresId: 1,
+  page: 1,
 };
 
 export const filterSlice = createSlice({
@@ -24,9 +25,17 @@ export const filterSlice = createSlice({
     onChangeGenresId(state, action: PayloadAction<number>) {
       state.genresId = action.payload;
     },
+    onChangePage(state, action: PayloadAction<number>) {
+      state.page = action.payload;
+    },
   },
 });
 
 export default filterSlice.reducer;
-export const { onChangeGenresId, onChangeMovieType, onChangeOrder, onChangeSearch } =
-  filterSlice.actions;
+export const {
+  onChangeGenresId,
+  onChangeMovieType,
+  onChangeOrder,
+  onChangeSearch,
+  onChangePage,
+} = filterSlice.actions;

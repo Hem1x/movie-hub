@@ -1,7 +1,15 @@
+import { RootState } from './../store';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { IMovie, ServerResponse, ServerResponseBudget } from '../../types/movie';
+import {
+  IMovie,
+  ISearchedMovie,
+  ServerResponse,
+  ServerResponseBudget,
+} from '../../types/movie';
 import { IMovieFull } from '../../types/movieFull';
 import { MovieMoney } from '../../types/queries';
+import { IState } from '../features/types';
+import { useAppSelector } from '../hooks';
 
 const generateMovieQuery = (type: string, page = '1') => ({
   url: '/top',
@@ -91,6 +99,25 @@ export const moviesApi = createApi({
       }),
       transformResponse: (response: ServerResponseBudget<MovieMoney>) => response.items,
     }),
+    getSearchedMovies: builder.query<
+      { totalPages: number; items: ISearchedMovie[]; total: number },
+      IState
+    >({
+      query: (state: IState) => ({
+        url: '',
+        headers: {
+          'X-API-KEY': '46e04e96-b48f-46b0-8f09-177b11d32fa1',
+          'Content-Type': 'application/json',
+        },
+        params: {
+          genres: state.genresId,
+          order: state.order,
+          type: state.movieType,
+          keyword: state.search,
+          page: state.page,
+        },
+      }),
+    }),
   }),
 });
 
@@ -104,4 +131,5 @@ export const {
   useGetMovieMoneyByIdQuery,
   useGetAwaitMoviesQuery,
   useGetTopMoviesQuery,
+  useGetSearchedMoviesQuery,
 } = moviesApi;

@@ -33,6 +33,10 @@ li {
   color: #fff;
 }
 
+#root > div > div.wrapper > div > div > div > nav > ul > li > button {
+  color: #fff;
+}
+
 h1,
 h2,
 h3,

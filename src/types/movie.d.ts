@@ -36,6 +36,22 @@ export interface IMovie {
   isAfisha: number;
 }
 
+export interface ISearchedMovie {
+  kinopoiskId: number;
+  imdbId: any;
+  nameRu: string;
+  nameEn: any;
+  nameOriginal: string;
+  countries: Country[];
+  genres: Genre[];
+  ratingKinopoisk: number;
+  ratingImdb: number;
+  year: number;
+  type: string;
+  posterUrl: string;
+  posterUrlPreview: string;
+}
+
 interface Country {
   country: string;
 }
