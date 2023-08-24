@@ -1,10 +1,18 @@
 .movies {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  gap: 1rem;
 }
 
-.pagination {
-  margin: 1rem;
+.filters {
+  right: 0;
+  margin-left: 1rem;
   float: right;
+  background-color: #fff;
+  padding: 2rem 10px;
+  border-radius: 10px;
+
+  .order-by-selector {
+    margin-top: 2rem;
+  }
 }

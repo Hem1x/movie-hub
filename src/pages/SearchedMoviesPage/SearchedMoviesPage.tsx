@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
-import { useAppSelector } from '../../store/hooks';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { useGetSearchedMoviesQuery } from '../../store/moviesApi/moviesApi';
 import styles from './SearchedMoviesPage.module.scss';
 import SearchedMovie from '../../components/SearchedMovie/SearchedMovie';
 import Loader from '../../components/Loader/Loader';
 import { Pagination } from '@mui/material';
-import { useDispatch } from 'react-redux';
 import { onChangePage } from '../../store/features/filterSlice';
+import SelectorByOrder from '../../components/SelectByOrder/SelectorByOrder';
 
 const SearchedMoviesPage = () => {
   const { search, genresId, movieType, order } = useAppSelector((state) => state.filter);
   const [currentPage, setCurrentPage] = useState(1);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const handleOnChange = (e: React.ChangeEvent<unknown>, value: number) => {
     setCurrentPage(value);
@@ -33,7 +33,7 @@ const SearchedMoviesPage = () => {
 
   return (
     <div>
-      <div className={styles.pagination}>
+      <div className={styles.filters}>
         {data?.totalPages !== 1 && (
           <Pagination
             count={data?.totalPages}
@@ -41,6 +41,7 @@ const SearchedMoviesPage = () => {
             onChange={handleOnChange}
           />
         )}
+        <SelectorByOrder />
       </div>
 
       <div className={styles.movies}>
