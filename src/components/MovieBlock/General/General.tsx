@@ -3,8 +3,6 @@ import styles from './General.module.scss';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useGetMovieByIdQuery } from '../../../store/moviesApi/moviesApi';
 import { minToHours } from '../../../utils/minToHours';
-import { Link } from 'react-router-dom';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { colorMovieRating } from '../../../utils/colorMovieRating';
 
 interface GeneralProps {}

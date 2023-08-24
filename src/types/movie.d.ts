@@ -1,4 +1,3 @@
-import { ServerResponse } from './movie';
 export interface ServerResponse<T> {
   pagesCount: number;
   films: T[];
@@ -35,6 +34,22 @@ export interface IMovie {
   ratingChange: any;
   isRatingUp: any;
   isAfisha: number;
+}
+
+export interface ISearchedMovie {
+  kinopoiskId: number;
+  imdbId: any;
+  nameRu: string;
+  nameEn: any;
+  nameOriginal: string;
+  countries: Country[];
+  genres: Genre[];
+  ratingKinopoisk: number;
+  ratingImdb: number;
+  year: number;
+  type: string;
+  posterUrl: string;
+  posterUrlPreview: string;
 }
 
 interface Country {
