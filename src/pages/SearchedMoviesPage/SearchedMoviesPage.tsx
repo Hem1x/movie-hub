@@ -34,7 +34,13 @@ const SearchedMoviesPage = () => {
   return (
     <div>
       <div className={styles.pagination}>
-        <Pagination count={data?.totalPages} color="primary" onChange={handleOnChange} />
+        {data?.totalPages !== 1 && (
+          <Pagination
+            count={data?.totalPages}
+            color="primary"
+            onChange={handleOnChange}
+          />
+        )}
       </div>
 
       <div className={styles.movies}>

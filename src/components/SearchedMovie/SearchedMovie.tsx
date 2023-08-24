@@ -22,7 +22,9 @@ const SearchedMovie = ({ movie }: SearchedMovieProps) => {
         />
         <div
           className={styles.rating}
-          style={{ backgroundColor: colorMovieRating(movie.ratingKinopoisk.toString()) }}>
+          style={{
+            backgroundColor: colorMovieRating(movie.ratingKinopoisk?.toString()),
+          }}>
           {movie.ratingKinopoisk ?? 'Нет оценки'}
         </div>
       </div>

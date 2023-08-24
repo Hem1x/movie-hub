@@ -9,7 +9,7 @@ interface SearchProps {}
 
 const Search = ({}: SearchProps) => {
   const [value, setValue] = useState('');
-  const debounced = useDebounce(value);
+  const debounced = useDebounce(value, 650);
   const dispatch = useAppDispatch();
 
   const hadnleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
