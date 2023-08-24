@@ -73,6 +73,7 @@
 
       .genres {
         display: flex;
+        flex-wrap: wrap;
         margin-bottom: 2rem;
         gap: 15px;
 

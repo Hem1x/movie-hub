@@ -41,16 +41,19 @@ export const moviesApi = createApi({
       transformResponse: (response: ServerResponse<IMovie>) => response.films.slice(0, 5),
       providesTags: (result) => providesTags(result),
     }),
+
     getTopMovieList: builder.query<IMovie[], null>({
       query: () => generateMovieQuery('TOP_250_BEST_FILMS'),
       transformResponse: (response: ServerResponse<IMovie>) => response.films.slice(0, 5),
       providesTags: (result) => providesTags(result),
     }),
+
     getAwaitMovieList: builder.query<IMovie[], null>({
       query: () => generateMovieQuery('TOP_AWAIT_FILMS'),
       transformResponse: (response: ServerResponse<IMovie>) => response.films.slice(0, 5),
       providesTags: (result) => providesTags(result),
     }),
+
     getMovieById: builder.query<IMovieFull, string>({
       query: (id: string) => ({
         url: `/${id}`,
@@ -60,6 +63,7 @@ export const moviesApi = createApi({
         },
       }),
     }),
+
     getMovieMoneyById: builder.query<MovieMoney[], string>({
       query: (id: string) => ({
         url: `/${id}/box_office`,
@@ -70,15 +74,20 @@ export const moviesApi = createApi({
       }),
       transformResponse: (response: ServerResponseBudget<MovieMoney>) => response.items,
     }),
-    getMovieImagesById: builder.query<Image[], string>({
-      query: (id: string) => ({
-        url: `/${id}/images`,
+
+    getPopularMovie: builder.query<IMovie, null>({
+      query: () => ({
+        url: `/top`,
+        params: {
+          type: 'TOP_100_POPULAR_FILMS',
+          page: 1,
+        },
         headers: {
           'X-API-KEY': '46e04e96-b48f-46b0-8f09-177b11d32fa1',
           'Content-Type': 'application/json',
         },
       }),
-      transformResponse: (response: ServerResponseImages<Image>) => response.items,
+      transformResponse: (response: ServerResponse<IMovie>) => response.films[3],
     }),
   }),
 });
@@ -89,5 +98,5 @@ export const {
   useGetTopMovieListQuery,
   useGetMovieByIdQuery,
   useGetMovieMoneyByIdQuery,
-  useGetMovieImagesByIdQuery,
+  useGetPopularMovieQuery,
 } = moviesApi;
