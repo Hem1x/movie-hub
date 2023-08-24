@@ -1,15 +1,9 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import {
-  IMovie,
-  Image,
-  ServerResponse,
-  ServerResponseBudget,
-  ServerResponseImages,
-} from '../../@types/movie';
-import { IMovieFull } from '../../@types/movieFull';
-import { MovieMoney } from '../../@types/queries';
+import { IMovie, ServerResponse, ServerResponseBudget } from '../../types/movie';
+import { IMovieFull } from '../../types/movieFull';
+import { MovieMoney } from '../../types/queries';
 
-const generateMovieQuery = (type: string) => ({
+const generateMovieQuery = (type: string, page = '1') => ({
   url: '/top',
   headers: {
     'X-API-KEY': '46e04e96-b48f-46b0-8f09-177b11d32fa1',
@@ -17,7 +11,7 @@ const generateMovieQuery = (type: string) => ({
   },
   params: {
     type,
-    page: 1,
+    page,
   },
 });
 
@@ -36,6 +30,23 @@ export const moviesApi = createApi({
     baseUrl: 'https://kinopoiskapiunofficial.tech/api/v2.2/films',
   }),
   endpoints: (builder) => ({
+    getPopularMovie: builder.query<IMovie, null>({
+      query: () => ({
+        url: `/top`,
+        params: {
+          type: 'TOP_100_POPULAR_FILMS',
+          page: 1,
+        },
+        headers: {
+          'X-API-KEY': '46e04e96-b48f-46b0-8f09-177b11d32fa1',
+          'Content-Type': 'application/json',
+        },
+      }),
+      transformResponse: (response: ServerResponse<IMovie>) => response.films[3],
+    }),
+    getPopularMovies: builder.query<{ pagesCount: number; films: IMovie[] }, string>({
+      query: (page) => generateMovieQuery('TOP_100_POPULAR_FILMS', page),
+    }),
     getPopularMovieList: builder.query<IMovie[], null>({
       query: () => generateMovieQuery('TOP_100_POPULAR_FILMS'),
       transformResponse: (response: ServerResponse<IMovie>) => response.films.slice(0, 5),
@@ -74,29 +85,15 @@ export const moviesApi = createApi({
       }),
       transformResponse: (response: ServerResponseBudget<MovieMoney>) => response.items,
     }),
-
-    getPopularMovie: builder.query<IMovie, null>({
-      query: () => ({
-        url: `/top`,
-        params: {
-          type: 'TOP_100_POPULAR_FILMS',
-          page: 1,
-        },
-        headers: {
-          'X-API-KEY': '46e04e96-b48f-46b0-8f09-177b11d32fa1',
-          'Content-Type': 'application/json',
-        },
-      }),
-      transformResponse: (response: ServerResponse<IMovie>) => response.films[3],
-    }),
   }),
 });
 
 export const {
+  useGetPopularMovieQuery,
+  useGetPopularMoviesQuery,
   useGetPopularMovieListQuery,
   useGetAwaitMovieListQuery,
   useGetTopMovieListQuery,
   useGetMovieByIdQuery,
   useGetMovieMoneyByIdQuery,
-  useGetPopularMovieQuery,
 } = moviesApi;

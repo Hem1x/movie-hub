@@ -23,9 +23,14 @@ button {
   border: none;
 }
 
-ul {
+ul,
+li {
   list-style-type: none;
   padding: 0;
+}
+
+#root > div > div.wrapper > div > div.PopularPage_header__DlGHF > nav > ul > li > button {
+  color: #fff;
 }
 
 h1,
@@ -36,6 +41,11 @@ h5,
 h6,
 p {
   margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
 }
 
 .wrapper {

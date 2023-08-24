@@ -9,10 +9,10 @@ const SideBar: React.FC = () => {
   return (
     <div className={styles.nav}>
       <img className={styles.logo} src={logo} alt="logo" />
-      <NavLink to="/movie">
+      <NavLink to="/movies">
         <img
           className={styles.navItem}
-          src={location.pathname.includes('/movie') ? homeActive : home}
+          src={location.pathname.includes('/movies') ? homeActive : home}
           alt="home"
         />
       </NavLink>

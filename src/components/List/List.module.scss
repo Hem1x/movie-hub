@@ -13,11 +13,12 @@
     justify-content: space-between;
     margin-bottom: 2rem;
 
-    h2 {
+    .seeAll {
       font-weight: 500;
       font-size: 20px;
       opacity: 0.5;
       transition: all 0.1s ease-in-out;
+      color: white;
 
       &:hover {
         opacity: 0.8;

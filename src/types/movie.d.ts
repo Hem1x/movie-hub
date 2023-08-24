@@ -1,4 +1,4 @@
-import { ServerResponse } from './movie.d';
+import { ServerResponse } from './movie';
 export interface ServerResponse<T> {
   pagesCount: number;
   films: T[];

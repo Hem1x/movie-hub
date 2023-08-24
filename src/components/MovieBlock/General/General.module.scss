@@ -4,6 +4,7 @@
   margin: 3rem 0;
 
   .poster {
+    position: relative;
     margin-right: 3.5rem;
     max-width: 350px;
 
@@ -95,6 +96,21 @@
       p {
         font-size: 20px;
       }
+    }
+  }
+
+  .back {
+    background-color: rgba(#000, 0.5);
+    color: #e9601d;
+    border: 2px solid #e9601d;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-size: 20px;
+    transition: all 0.1s ease-in-out;
+
+    &:hover {
+      color: #fff;
+      cursor: pointer;
     }
   }
 }

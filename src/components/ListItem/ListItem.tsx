@@ -1,7 +1,8 @@
 import React from 'react';
 import styles from './ListItem.module.scss';
-import { IMovie } from '../../@types/movie';
+import { IMovie } from '../../types/movie';
 import { Link } from 'react-router-dom';
+import { colorMovieRating } from '../../utils/colorMovieRating';
 
 interface ListItemProps {
   movie: IMovie;
@@ -19,11 +20,15 @@ const ListItem = ({ movie }: ListItemProps) => {
             backgroundPosition: 'center',
           }}
         />
-        <div className={styles.rating}>{movie.rating}</div>
+        <div
+          className={styles.rating}
+          style={{ backgroundColor: colorMovieRating(movie.rating) }}>
+          {movie.rating ?? 'Нет оценки'}
+        </div>
       </div>
       <div className={styles.overlay}>
         <h1>{movie.nameRu}</h1>
-        <Link to={`/movie/${movie.filmId}`}>
+        <Link to={`/movies/movie/${movie.filmId}`}>
           <button>Подробнее</button>
         </Link>
       </div>
