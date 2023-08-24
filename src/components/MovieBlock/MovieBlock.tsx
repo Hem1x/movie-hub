@@ -1,10 +1,9 @@
 import React from 'react';
 import styles from './MovieBlock.module.scss';
 import General from './General/General';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useGetMovieMoneyByIdQuery } from '../../store/moviesApi/moviesApi';
 import { numberWithSpaces } from '../../utils';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 interface MovieBlockProps {}
 

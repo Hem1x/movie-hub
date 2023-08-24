@@ -1,4 +1,3 @@
-import { ServerResponse } from './movie';
 export interface ServerResponse<T> {
   pagesCount: number;
   films: T[];

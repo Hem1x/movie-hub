@@ -1,16 +1,21 @@
 import React, { useState } from 'react';
 import { useGetPopularMoviesQuery } from '../../store/moviesApi/moviesApi';
 import ListItem from '../../components/ListItem/ListItem';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { nameToList } from '../../utils/nameToList';
 import { ListEnum } from '../../types/list';
-import styles from './PopularPage.module.scss';
+import styles from './ListMoviePage.module.scss';
 import { Pagination } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { IMovie } from '../../types/movie';
 
-const PopularPage = () => {
+interface ListMoviePageProps {
+  queryHook: any;
+}
+
+const ListMoviePage = ({ queryHook }: ListMoviePageProps) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const { data } = useGetPopularMoviesQuery(currentPage.toString());
+  const { data } = queryHook(currentPage.toString());
   const { pathname } = useLocation();
 
   const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
@@ -26,7 +31,7 @@ const PopularPage = () => {
           <div onClick={() => navigate(-1)}>
             <ArrowBackIcon />
           </div>
-          <h1>{nameToList(pathname.slice(1) as ListEnum)}</h1>
+          <h1>{nameToList(pathname.slice(8) as ListEnum)}</h1>
         </div>
 
         <Pagination
@@ -38,7 +43,7 @@ const PopularPage = () => {
       </div>
 
       <div className={styles.movies}>
-        {data?.films.map((movie) => (
+        {data?.films.map((movie: IMovie) => (
           <ListItem key={movie.filmId} movie={movie} />
         ))}
       </div>
@@ -46,4 +51,4 @@ const PopularPage = () => {
   );
 };
 
-export default PopularPage;
+export default ListMoviePage;

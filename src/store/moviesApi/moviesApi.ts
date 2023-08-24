@@ -47,6 +47,12 @@ export const moviesApi = createApi({
     getPopularMovies: builder.query<{ pagesCount: number; films: IMovie[] }, string>({
       query: (page) => generateMovieQuery('TOP_100_POPULAR_FILMS', page),
     }),
+    getAwaitMovies: builder.query<{ pagesCount: number; films: IMovie[] }, string>({
+      query: (page) => generateMovieQuery('TOP_AWAIT_FILMS', page),
+    }),
+    getTopMovies: builder.query<{ pagesCount: number; films: IMovie[] }, string>({
+      query: (page) => generateMovieQuery('TOP_250_BEST_FILMS', page),
+    }),
     getPopularMovieList: builder.query<IMovie[], null>({
       query: () => generateMovieQuery('TOP_100_POPULAR_FILMS'),
       transformResponse: (response: ServerResponse<IMovie>) => response.films.slice(0, 5),
@@ -96,4 +102,6 @@ export const {
   useGetTopMovieListQuery,
   useGetMovieByIdQuery,
   useGetMovieMoneyByIdQuery,
+  useGetAwaitMoviesQuery,
+  useGetTopMoviesQuery,
 } = moviesApi;
