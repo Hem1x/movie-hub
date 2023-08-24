@@ -30,8 +30,8 @@ const SelectorByOrder = () => {
           label="Сортировка по:"
           onChange={handleChange}>
           <MenuItem value={orderEnum.RATING}>Рейтингу</MenuItem>
-          <MenuItem value={orderEnum.NUM_VOTE}>Самые обсуждаемые</MenuItem>
-          <MenuItem value={orderEnum.YEAR}>По дате</MenuItem>
+          <MenuItem value={orderEnum.NUM_VOTE}>Чаще смотрят</MenuItem>
+          <MenuItem value={orderEnum.YEAR}>По дате (новые)</MenuItem>
         </Select>
       </FormControl>
     </div>

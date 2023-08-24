@@ -7,14 +7,15 @@ import {
   ServerResponseBudget,
 } from '../../types/movie';
 import { IMovieFull } from '../../types/movieFull';
-import { MovieMoney } from '../../types/queries';
+import { IGenre, MovieMoney } from '../../types/queries';
 import { IState } from '../features/types';
-import { useAppSelector } from '../hooks';
+
+const API_KEY = '0774af9c-1989-4870-85c9-0286bd8e4c05';
 
 const generateMovieQuery = (type: string, page = '1') => ({
   url: '/top',
   headers: {
-    'X-API-KEY': '46e04e96-b48f-46b0-8f09-177b11d32fa1',
+    'X-API-KEY': API_KEY,
     'Content-Type': 'application/json',
   },
   params: {
@@ -46,7 +47,7 @@ export const moviesApi = createApi({
           page: 1,
         },
         headers: {
-          'X-API-KEY': '46e04e96-b48f-46b0-8f09-177b11d32fa1',
+          'X-API-KEY': API_KEY,
           'Content-Type': 'application/json',
         },
       }),
@@ -83,7 +84,7 @@ export const moviesApi = createApi({
       query: (id: string) => ({
         url: `/${id}`,
         headers: {
-          'X-API-KEY': '46e04e96-b48f-46b0-8f09-177b11d32fa1',
+          'X-API-KEY': API_KEY,
           'Content-Type': 'application/json',
         },
       }),
@@ -93,7 +94,7 @@ export const moviesApi = createApi({
       query: (id: string) => ({
         url: `/${id}/box_office`,
         headers: {
-          'X-API-KEY': '46e04e96-b48f-46b0-8f09-177b11d32fa1',
+          'X-API-KEY': API_KEY,
           'Content-Type': 'application/json',
         },
       }),
@@ -106,7 +107,7 @@ export const moviesApi = createApi({
       query: (state: IState) => ({
         url: '',
         headers: {
-          'X-API-KEY': '46e04e96-b48f-46b0-8f09-177b11d32fa1',
+          'X-API-KEY': API_KEY,
           'Content-Type': 'application/json',
         },
         params: {
@@ -115,6 +116,15 @@ export const moviesApi = createApi({
           type: state.movieType,
           keyword: state.search,
           page: state.page,
+        },
+      }),
+    }),
+    getGenres: builder.query<{ genres: IGenre[]; countries: any[] }, null>({
+      query: () => ({
+        url: '/filters',
+        headers: {
+          'X-API-KEY': API_KEY,
+          'Content-Type': 'application/json',
         },
       }),
     }),
@@ -132,4 +142,5 @@ export const {
   useGetAwaitMoviesQuery,
   useGetTopMoviesQuery,
   useGetSearchedMoviesQuery,
+  useGetGenresQuery,
 } = moviesApi;

@@ -7,6 +7,8 @@ import Loader from '../../components/Loader/Loader';
 import { Pagination } from '@mui/material';
 import { onChangePage } from '../../store/features/filterSlice';
 import SelectorByOrder from '../../components/SelectByOrder/SelectorByOrder';
+import SelectByMovieType from '../../components/SelectByMovieType/SelectByMovieType';
+import SelectByGenre from '../../components/SelectByGenre/SelectByGenre';
 
 const SearchedMoviesPage = () => {
   const { search, genresId, movieType, order } = useAppSelector((state) => state.filter);
@@ -25,7 +27,6 @@ const SearchedMoviesPage = () => {
     order,
     page: currentPage,
   });
-  console.log(data);
 
   if (isLoading) {
     return <Loader />;
@@ -42,6 +43,8 @@ const SearchedMoviesPage = () => {
           />
         )}
         <SelectorByOrder />
+        <SelectByMovieType />
+        <SelectByGenre />
       </div>
 
       <div className={styles.movies}>

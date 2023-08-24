@@ -20,3 +20,8 @@ export interface MovieMoney {
   name: string;
   symbol: string;
 }
+
+export interface IGenre {
+  id: number;
+  genre: string;
+}
