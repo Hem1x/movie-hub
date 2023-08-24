@@ -18,10 +18,15 @@ const MovieBlock = ({}: MovieBlockProps) => {
   const hasWorld = MoneyDataNames?.includes('WORLD');
 
   const budget = hasBuget
-    ? filteredMoney?.filter((obj) => obj.type === 'BUDGET')[0].amount
+    ? filteredMoney?.filter((obj) => obj.type === 'BUDGET')[0].amount! +
+      ' ' +
+      filteredMoney?.filter((obj) => obj.type === 'BUDGET')[0].symbol!
     : 'Нет данных';
+
   const world = hasWorld
-    ? filteredMoney?.filter((obj) => obj.type === 'WORLD')[0].amount
+    ? filteredMoney?.filter((obj) => obj.type === 'WORLD')[0].amount! +
+      ' ' +
+      filteredMoney?.filter((obj) => obj.type === 'WORLD')[0].symbol!
     : 'Нет данных';
 
   return (
@@ -33,15 +38,11 @@ const MovieBlock = ({}: MovieBlockProps) => {
         <div className={styles.money}>
           <div className={styles.budget}>
             <span>Бюджет</span>
-            <span>
-              {typeof budget === 'number' ? numberWithSpaces(budget) + ' $' : budget}
-            </span>
+            <span>{numberWithSpaces(budget)}</span>
           </div>
           <div className={styles.collected}>
             <span>Собрано</span>
-            <span>
-              {typeof world === 'number' ? numberWithSpaces(world) + ' $' : world}
-            </span>
+            <span>{numberWithSpaces(world)}</span>
           </div>
         </div>
       </div>
