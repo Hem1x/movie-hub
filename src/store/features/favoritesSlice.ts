@@ -1,20 +1,19 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { IMixedMovie } from '../../types/mixedMovieTypes';
 import { IMovie } from '../../types/movie';
 
-const initialState: IMixedMovie[] = [];
+const initialState: IMovie[] = [];
 
 export const favoritesSlice = createSlice({
   name: 'favorites',
   initialState,
   reducers: {
-    addToFavorites(state, action: PayloadAction<IMixedMovie>) {
+    addToFavorites(state, action: PayloadAction<IMovie>) {
       if (state.map((movie) => movie.filmId).includes(action.payload.filmId)) {
         return;
       }
       state.push(action.payload);
     },
-    deleteFromFavorites(state, action) {
+    deleteFromFavorites(state, action: PayloadAction<number>) {
       return state.filter((movie) => movie.filmId !== action.payload);
     },
   },

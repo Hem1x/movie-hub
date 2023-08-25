@@ -10,7 +10,7 @@ import {
   deleteFromFavorites,
 } from '../../../store/features/favoritesSlice';
 import { IMovieFull } from '../../../types/movieFull';
-import { IMixedMovie } from '../../../types/mixedMovieTypes';
+import { IMovie } from '../../../types/movie';
 
 interface GeneralProps {}
 
@@ -36,10 +36,12 @@ const General = ({}: GeneralProps) => {
     } else {
       dispatch(
         addToFavorites({
-          ...(data as IMixedMovie),
           filmId: Number(id),
+          rating: data?.ratingKinopoisk.toString(),
+          posterUrlPreview: data?.posterUrlPreview,
+          nameRu: data?.nameRu,
           isFavorite: true,
-        }),
+        } as IMovie),
       );
       isFavorite = true;
     }

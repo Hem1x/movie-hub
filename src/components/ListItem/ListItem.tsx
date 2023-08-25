@@ -6,11 +6,10 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useDispatch } from 'react-redux';
 import { addToFavorites, deleteFromFavorites } from '../../store/features/favoritesSlice';
 import { useAppSelector } from '../../store/hooks';
-import { IMixedMovie } from '../../types/mixedMovieTypes';
 import { IMovie } from '../../types/movie';
 
 interface ListItemProps {
-  movie: IMixedMovie;
+  movie: IMovie;
 }
 
 const ListItem = ({ movie }: ListItemProps) => {

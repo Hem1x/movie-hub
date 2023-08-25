@@ -8,7 +8,6 @@ import { Pagination } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { IMovie } from '../../types/movie';
 import Loader from '../../components/Loader/Loader';
-import { IMixedMovie } from '../../types/mixedMovieTypes';
 
 interface ListMoviePageProps {
   queryHook: any;
@@ -49,7 +48,7 @@ const ListMoviePage = ({ queryHook }: ListMoviePageProps) => {
 
       <div className={styles.movies}>
         {data?.films.map((movie: IMovie) => (
-          <ListItem key={movie.filmId} movie={movie as IMixedMovie} />
+          <ListItem key={movie.filmId} movie={movie} />
         ))}
       </div>
     </div>
