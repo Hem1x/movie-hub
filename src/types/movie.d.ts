@@ -34,6 +34,7 @@ export interface IMovie {
   ratingChange: any;
   isRatingUp: any;
   isAfisha: number;
+  isFavorite?: boolean;
 }
 
 export interface ISearchedMovie {

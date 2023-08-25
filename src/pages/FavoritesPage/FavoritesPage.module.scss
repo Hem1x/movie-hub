@@ -1,0 +1,22 @@
+.container {
+  margin-top: 3rem;
+
+  .header {
+    display: flex;
+    align-items: baseline;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2rem;
+
+    .noMessage {
+      margin-top: 2rem;
+      grid-area: 1 / 1 / 2 / 6;
+      text-align: center;
+    }
+  }
+}

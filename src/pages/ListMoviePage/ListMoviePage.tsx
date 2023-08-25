@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useGetPopularMoviesQuery } from '../../store/moviesApi/moviesApi';
 import ListItem from '../../components/ListItem/ListItem';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { nameToList } from '../../utils/nameToList';
@@ -9,6 +8,7 @@ import { Pagination } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { IMovie } from '../../types/movie';
 import Loader from '../../components/Loader/Loader';
+import { IMixedMovie } from '../../types/mixedMovieTypes';
 
 interface ListMoviePageProps {
   queryHook: any;
@@ -49,7 +49,7 @@ const ListMoviePage = ({ queryHook }: ListMoviePageProps) => {
 
       <div className={styles.movies}>
         {data?.films.map((movie: IMovie) => (
-          <ListItem key={movie.filmId} movie={movie} />
+          <ListItem key={movie.filmId} movie={movie as IMixedMovie} />
         ))}
       </div>
     </div>

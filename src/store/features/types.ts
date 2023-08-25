@@ -11,7 +11,6 @@ export enum orderEnum {
   NUM_VOTE = 'NUM_VOTE',
   YEAR = 'YEAR',
 }
-
 export interface IState {
   search: string;
   movieType: movieTypeEnum | null;

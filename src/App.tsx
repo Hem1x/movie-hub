@@ -10,6 +10,7 @@ import {
   useGetPopularMoviesQuery,
   useGetTopMoviesQuery,
 } from './store/moviesApi/moviesApi';
+import FavoritesPage from './pages/FavoritesPage/FavoritesPage';
 
 const App = () => {
   return (
@@ -36,6 +37,7 @@ const App = () => {
             />
             <Route path="/movie/:id" element={<SingleMovie />} />
             <Route path="/search" element={<SearchPage />} />
+            <Route path="/favorites" element={<FavoritesPage />} />
           </Routes>
         </div>
       </div>

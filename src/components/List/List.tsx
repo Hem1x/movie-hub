@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { ListEnum } from '../../types/list';
 import { nameToList } from '../../utils/nameToList';
 import Loader from '../Loader/Loader';
+import { IMixedMovie } from '../../types/mixedMovieTypes';
 
 interface ListProps {
   queryHook: any;
@@ -26,7 +27,7 @@ const List = ({ queryHook, title }: ListProps) => {
 
       <ul className={styles.moviesList}>
         {data?.map((movie: IMovie) => (
-          <ListItem key={movie.filmId} movie={movie} />
+          <ListItem key={movie.filmId} movie={movie as IMixedMovie} />
         ))}
       </ul>
     </div>
