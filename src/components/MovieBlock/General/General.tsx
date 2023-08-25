@@ -21,7 +21,7 @@ const General = ({}: GeneralProps) => {
   const dispatch = useAppDispatch();
 
   const selectedMovie = useAppSelector((state) =>
-    state.favorites.filter((obj) => obj.filmId === Number(id)),
+    state.favorites.filter((obj: IMovie) => obj.filmId === Number(id)),
   );
   let isFavorite = false;
 
