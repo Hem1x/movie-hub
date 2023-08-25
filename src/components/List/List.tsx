@@ -19,7 +19,7 @@ const List = ({ queryHook, title }: ListProps) => {
     <div className={styles.list}>
       <div className={styles.title}>
         <h1>{nameToList(title)}</h1>
-        <Link to={`${title}`}>
+        <Link to={`/${title}`}>
           <div className={styles.seeAll}>Показать всё</div>
         </Link>
       </div>

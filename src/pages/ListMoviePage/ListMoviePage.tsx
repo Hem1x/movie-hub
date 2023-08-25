@@ -36,7 +36,7 @@ const ListMoviePage = ({ queryHook }: ListMoviePageProps) => {
           <div onClick={() => navigate(-1)}>
             <ArrowBackIcon />
           </div>
-          <h1>{nameToList(pathname.slice(8) as ListEnum)}</h1>
+          <h1>{nameToList(pathname.slice(1) as ListEnum)}</h1>
         </div>
 
         <Pagination

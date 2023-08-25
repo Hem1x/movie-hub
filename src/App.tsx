@@ -21,20 +21,20 @@ const App = () => {
         <SideBar />
         <div className="wrapper">
           <Routes>
-            <Route path="/movies" element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route
-              path="/movies/popular-list"
+              path="/popular-list"
               element={<ListMoviePage queryHook={useGetPopularMoviesQuery} />}
             />
             <Route
-              path="/movies/await-list"
+              path="/await-list"
               element={<ListMoviePage queryHook={useGetAwaitMoviesQuery} />}
             />
             <Route
-              path="/movies/top-list"
+              path="/top-list"
               element={<ListMoviePage queryHook={useGetTopMoviesQuery} />}
             />
-            <Route path="/movies/movie/:id" element={<SingleMovie />} />
+            <Route path="/movie/:id" element={<SingleMovie />} />
             <Route path="/search" element={<SearchPage />} />
           </Routes>
         </div>

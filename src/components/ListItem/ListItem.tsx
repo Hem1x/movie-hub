@@ -28,7 +28,7 @@ const ListItem = ({ movie }: ListItemProps) => {
       </div>
       <div className={styles.overlay}>
         <h1>{movie.nameRu}</h1>
-        <Link to={`/movies/movie/${movie.filmId}`}>
+        <Link to={`/movie/${movie.filmId}`}>
           <button>Подробнее</button>
         </Link>
       </div>

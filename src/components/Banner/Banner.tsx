@@ -32,7 +32,7 @@ const Banner = ({}: BannerProps) => {
         </div>
         <h1 className={styles.title}>{movie?.nameRu}</h1>
         <p className={styles.text}>{genres?.join(', ')}</p>
-        <Link to={`${movie?.filmId}`}>
+        <Link to={`/movie/${movie?.filmId}`}>
           <button>Подробнее</button>
         </Link>
       </div>
