@@ -11,6 +11,8 @@ import {
   useGetTopMoviesQuery,
 } from './store/moviesApi/moviesApi';
 import FavoritesPage from './pages/FavoritesPage/FavoritesPage';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
 
 const App = () => {
   return (
@@ -38,6 +40,8 @@ const App = () => {
             <Route path="/movie/:id" element={<SingleMovie />} />
             <Route path="/search" element={<SearchPage />} />
             <Route path="/favorites" element={<FavoritesPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
           </Routes>
         </div>
       </div>
