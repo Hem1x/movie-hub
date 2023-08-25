@@ -4,13 +4,47 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useGetMovieByIdQuery } from '../../../store/moviesApi/moviesApi';
 import { minToHours } from '../../../utils/minToHours';
 import { colorMovieRating } from '../../../utils/colorMovieRating';
+import { useAppDispatch, useAppSelector } from '../../../store/hooks';
+import {
+  addToFavorites,
+  deleteFromFavorites,
+} from '../../../store/features/favoritesSlice';
+import { IMovie } from '../../../types/movie';
 
-interface GeneralProps {}
-
-const General = ({}: GeneralProps) => {
+const General: React.FC = () => {
   const { id } = useParams();
-  const { data } = useGetMovieByIdQuery(id!);
+  const { data, isSuccess } = useGetMovieByIdQuery(id!);
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+
+  const selectedMovie = useAppSelector((state) =>
+    state.favorites.filter((obj: IMovie) => obj.filmId === Number(id)),
+  );
+  let isFavorite = false;
+
+  if (selectedMovie.length !== 0) {
+    isFavorite = selectedMovie[0].isFavorite!;
+  }
+
+  const clickHandler = () => {
+    if (isFavorite) {
+      dispatch(deleteFromFavorites(Number(id)));
+      isFavorite = false;
+    } else {
+      dispatch(
+        addToFavorites({
+          filmId: Number(id),
+          rating: data?.ratingKinopoisk?.toString() || 'Нет данных',
+          posterUrlPreview: data?.posterUrlPreview,
+          nameRu: data?.nameRu,
+          isFavorite: true,
+        } as IMovie),
+      );
+      isFavorite = true;
+    }
+
+    console.log(isFavorite);
+  };
 
   return (
     <div className={styles.general}>
@@ -26,20 +60,35 @@ const General = ({}: GeneralProps) => {
       </div>
 
       <div className={styles.movieInfo}>
-        <div className={styles.tags}>
-          {data?.ratingKinopoisk && (
-            <div
-              className={styles.rating}
-              style={{
-                backgroundColor: colorMovieRating(data?.ratingKinopoisk.toString()),
-              }}>
-              {data.ratingKinopoisk}
+        <div className={styles.header}>
+          <div className={styles.tags}>
+            {data?.ratingKinopoisk && (
+              <div
+                className={styles.rating}
+                style={{
+                  backgroundColor: colorMovieRating(data?.ratingKinopoisk.toString()),
+                }}>
+                {data.ratingKinopoisk}
+              </div>
+            )}
+            {data?.ratingKinopoisk && (
+              <div className={styles.imdbRating}>IMDB {data.ratingImdb}</div>
+            )}
+            {data?.year === 2023 && <div className={styles.new}>Новинка</div>}
+          </div>
+
+          <div className={styles.actions}>
+            {isSuccess && (
+              <div>
+                <button className={styles.favoriteBtn} onClick={clickHandler}>
+                  {isFavorite ? 'Добавлено' : 'Добавить в избранное'}
+                </button>
+              </div>
+            )}
+            <div onClick={() => navigate(-1)}>
+              <button className={styles.back}>Назад</button>
             </div>
-          )}
-          {data?.ratingKinopoisk && (
-            <div className={styles.imdbRating}>IMDB {data.ratingImdb}</div>
-          )}
-          {data?.year === 2023 && <div className={styles.new}>Новинка</div>}
+          </div>
         </div>
 
         <div className={styles.textInfo}>
@@ -64,10 +113,6 @@ const General = ({}: GeneralProps) => {
             {data?.filmLength} мин. / {minToHours(data?.filmLength!)}
           </p>
         </div>
-      </div>
-
-      <div onClick={() => navigate(-1)}>
-        <button className={styles.back}>Назад</button>
       </div>
     </div>
   );

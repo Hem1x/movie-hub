@@ -1,6 +1,9 @@
 .nav {
+  position: relative;
+
   display: flex;
   flex-direction: column;
+  background: #121212;
   align-items: center;
   width: 85px;
   height: 100vh;
@@ -16,6 +19,47 @@
     &:hover {
       cursor: pointer;
       scale: 1.1;
+    }
+  }
+
+  .userBlock {
+    position: absolute;
+    bottom: 10px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .userName {
+      background-color: #ffffff;
+      color: #121212;
+      width: 4rem;
+      height: 4rem;
+      border-radius: 9999px;
+      text-align: center;
+      font-size: 30px;
+      font-weight: 900;
+
+      span {
+        display: block;
+        margin-top: 9px;
+      }
+    }
+
+    .userExit {
+      font-size: 15px;
+      font-weight: 700;
+      padding: 10px 0;
+      border-radius: 10px;
+      background-color: rgba($color: #000000, $alpha: 0);
+      color: #e9601d;
+      border: 1px solid #e9601d;
+      cursor: pointer;
+      transition: all 0.1s ease-in-out;
+
+      &:hover {
+        color: white;
+      }
     }
   }
 }

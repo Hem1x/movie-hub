@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useGetPopularMoviesQuery } from '../../store/moviesApi/moviesApi';
 import ListItem from '../../components/ListItem/ListItem';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { nameToList } from '../../utils/nameToList';

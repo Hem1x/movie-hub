@@ -5,8 +5,6 @@ import { IMovie } from '../../types/movie';
 import { Link } from 'react-router-dom';
 import { ListEnum } from '../../types/list';
 import { nameToList } from '../../utils/nameToList';
-import Loader from '../Loader/Loader';
-
 interface ListProps {
   queryHook: any;
   title: ListEnum;

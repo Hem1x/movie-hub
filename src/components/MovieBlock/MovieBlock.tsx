@@ -5,9 +5,7 @@ import { useParams } from 'react-router-dom';
 import { useGetMovieMoneyByIdQuery } from '../../store/moviesApi/moviesApi';
 import { numberWithSpaces } from '../../utils';
 
-interface MovieBlockProps {}
-
-const MovieBlock = ({}: MovieBlockProps) => {
+const MovieBlock: React.FC = () => {
   const { id } = useParams();
   const { data } = useGetMovieMoneyByIdQuery(id!); // [] [world] [budget] [world, budget]
   const filteredMoney = data?.filter(
