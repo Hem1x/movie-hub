@@ -1,0 +1,80 @@
+.container {
+  max-width: 500px;
+  margin: 15rem auto;
+  background: white;
+  padding: 3rem 40px;
+  padding-bottom: 1.5rem;
+  border-radius: 2rem;
+
+  h1 {
+    color: #000;
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 900;
+
+    span {
+      color: #e9601d;
+    }
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+
+    .inputs {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      .showPass {
+        position: absolute;
+        bottom: 2px;
+        right: 1rem;
+        display: flex;
+        justify-content: flex-end;
+        cursor: pointer;
+        color: #000;
+        margin-bottom: 1rem;
+      }
+    }
+
+    .error {
+      width: 100%;
+      margin-top: 10px;
+      text-align: right;
+      color: red;
+      margin-bottom: 1rem;
+    }
+
+    .formBtn {
+      padding: 20px 10px;
+      border-radius: 5px;
+      font-size: 20px;
+      background-color: #e9601d;
+      color: white;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        scale: 1.05;
+      }
+    }
+  }
+
+  .switcher {
+    text-align: center;
+    margin-top: 2rem;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 100;
+
+    p {
+      transition: all 0.1s ease-in-out;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
