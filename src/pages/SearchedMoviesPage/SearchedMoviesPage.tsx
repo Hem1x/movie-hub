@@ -33,26 +33,32 @@ const SearchedMoviesPage = () => {
   }
 
   return (
-    <div>
-      <div className={styles.filters}>
-        {data?.totalPages !== 1 && (
-          <Pagination
-            count={data?.totalPages}
-            color="primary"
-            onChange={handleOnChange}
-          />
-        )}
-        <SelectorByOrder />
-        <SelectByMovieType />
-        <SelectByGenre />
-      </div>
+    <>
+      {data?.total !== 0 ? (
+        <div>
+          <div className={styles.filters}>
+            {data?.totalPages !== 1 && (
+              <Pagination
+                count={data?.totalPages}
+                color="primary"
+                onChange={handleOnChange}
+              />
+            )}
+            <SelectorByOrder />
+            <SelectByMovieType />
+            <SelectByGenre />
+          </div>
 
-      <div className={styles.movies}>
-        {data?.items.map((movie) => (
-          <SearchedMovie key={movie.kinopoiskId} movie={movie} />
-        ))}
-      </div>
-    </div>
+          <div className={styles.movies}>
+            {data?.items.map((movie) => (
+              <SearchedMovie key={movie.kinopoiskId} movie={movie} />
+            ))}
+          </div>
+        </div>
+      ) : (
+        <h2 style={{ textAlign: 'center', marginTop: '5rem' }}>Ничего не нашли</h2>
+      )}
+    </>
   );
 };
 

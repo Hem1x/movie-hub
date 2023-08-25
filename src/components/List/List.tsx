@@ -5,8 +5,6 @@ import { IMovie } from '../../types/movie';
 import { Link } from 'react-router-dom';
 import { ListEnum } from '../../types/list';
 import { nameToList } from '../../utils/nameToList';
-import Loader from '../Loader/Loader';
-
 interface ListProps {
   queryHook: any;
   title: ListEnum;
@@ -19,7 +17,7 @@ const List = ({ queryHook, title }: ListProps) => {
     <div className={styles.list}>
       <div className={styles.title}>
         <h1>{nameToList(title)}</h1>
-        <Link to={`${title}`}>
+        <Link to={`/${title}`}>
           <div className={styles.seeAll}>Показать всё</div>
         </Link>
       </div>

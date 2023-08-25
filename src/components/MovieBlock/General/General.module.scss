@@ -1,3 +1,18 @@
+@mixin button-style {
+  background-color: rgba(#000, 0.5);
+  color: #e9601d;
+  border: 2px solid #e9601d;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 20px;
+  transition: all 0.1s ease-in-out;
+
+  &:hover {
+    color: #fff;
+    cursor: pointer;
+  }
+}
+
 .general {
   display: flex;
   justify-content: center;
@@ -26,31 +41,54 @@
     display: flex;
     flex-direction: column;
 
-    .tags {
+    .header {
       display: flex;
-      margin-bottom: 20px;
-      font-weight: 700;
-      font-size: 1.5rem;
-      gap: 15px;
+      justify-content: space-between;
+      .tags {
+        display: flex;
+        margin-bottom: 20px;
+        font-weight: 700;
+        font-size: 1.5rem;
+        gap: 15px;
 
-      .rating {
-        border-radius: 5px;
-        padding: 3px 10px;
-        background-color: #009533;
+        .rating {
+          border-radius: 5px;
+          padding: 3px 10px;
+          background-color: #009533;
+        }
+
+        .imdbRating {
+          border-radius: 5px;
+          padding: 3px 20px;
+          color: black;
+          background-color: #ddbc28;
+        }
+
+        .new {
+          border-radius: 5px;
+          padding: 3px 10px;
+          font-weight: 500;
+          background-color: #7e35b7;
+        }
       }
 
-      .imdbRating {
-        border-radius: 5px;
-        padding: 3px 20px;
-        color: black;
-        background-color: #ddbc28;
-      }
+      .actions {
+        display: flex;
+        gap: 2rem;
 
-      .new {
-        border-radius: 5px;
-        padding: 3px 10px;
-        font-weight: 500;
-        background-color: #7e35b7;
+        .favoriteBtn {
+          @include button-style();
+          background-color: #e9601d;
+          color: white;
+
+          &:hover {
+            scale: 1.1;
+          }
+        }
+
+        .back {
+          @include button-style();
+        }
       }
     }
 
@@ -96,21 +134,6 @@
       p {
         font-size: 20px;
       }
-    }
-  }
-
-  .back {
-    background-color: rgba(#000, 0.5);
-    color: #e9601d;
-    border: 2px solid #e9601d;
-    padding: 0.5rem 1rem;
-    border-radius: 9999px;
-    font-size: 20px;
-    transition: all 0.1s ease-in-out;
-
-    &:hover {
-      color: #fff;
-      cursor: pointer;
     }
   }
 }

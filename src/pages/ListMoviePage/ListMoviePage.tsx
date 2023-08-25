@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useGetPopularMoviesQuery } from '../../store/moviesApi/moviesApi';
 import ListItem from '../../components/ListItem/ListItem';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { nameToList } from '../../utils/nameToList';
@@ -36,7 +35,7 @@ const ListMoviePage = ({ queryHook }: ListMoviePageProps) => {
           <div onClick={() => navigate(-1)}>
             <ArrowBackIcon />
           </div>
-          <h1>{nameToList(pathname.slice(8) as ListEnum)}</h1>
+          <h1>{nameToList(pathname.slice(1) as ListEnum)}</h1>
         </div>
 
         <Pagination

@@ -30,7 +30,7 @@ const SearchedMovie = ({ movie }: SearchedMovieProps) => {
       </div>
       <div className={styles.overlay}>
         <h1>{movie.nameRu}</h1>
-        <Link to={`/movies/movie/${movie.kinopoiskId}`}>
+        <Link to={`/movie/${movie.kinopoiskId}`}>
           <button>Подробнее</button>
         </Link>
       </div>
