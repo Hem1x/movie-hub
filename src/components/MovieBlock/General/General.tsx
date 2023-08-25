@@ -9,12 +9,9 @@ import {
   addToFavorites,
   deleteFromFavorites,
 } from '../../../store/features/favoritesSlice';
-import { IMovieFull } from '../../../types/movieFull';
 import { IMovie } from '../../../types/movie';
 
-interface GeneralProps {}
-
-const General = ({}: GeneralProps) => {
+const General: React.FC = () => {
   const { id } = useParams();
   const { data, isSuccess } = useGetMovieByIdQuery(id!);
   const navigate = useNavigate();
@@ -37,7 +34,7 @@ const General = ({}: GeneralProps) => {
       dispatch(
         addToFavorites({
           filmId: Number(id),
-          rating: data?.ratingKinopoisk.toString(),
+          rating: data?.ratingKinopoisk?.toString() || 'Нет данных',
           posterUrlPreview: data?.posterUrlPreview,
           nameRu: data?.nameRu,
           isFavorite: true,
