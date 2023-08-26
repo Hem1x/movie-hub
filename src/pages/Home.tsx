@@ -7,7 +7,6 @@ import {
 } from '../store/moviesApi/moviesApi';
 import List from '../components/List/List';
 import { ListEnum } from '../types/list';
-
 const Home = () => {
   return (
     <>

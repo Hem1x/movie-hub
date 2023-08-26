@@ -14,21 +14,22 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { removeUser } from '../../store/features/userSlice';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../firebase';
+import { useAuth } from '../../hooks/useAuth';
 
 const SideBar: React.FC = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const location = useLocation();
 
-  const isLoginOrRegisterPage =
-    location.pathname === '/login' || location.pathname === '/register';
+  const { isAuth } = useAuth();
 
   const { email } = useAppSelector((state) => state.users);
   const username = email?.split('@')[0].slice(0, 2).toUpperCase();
 
-  const logout = () => {
+  const logout = (e: React.MouseEvent<HTMLButtonElement>) => {
     dispatch(removeUser);
     signOut(auth);
+    window.location.reload();
     navigate('/login');
   };
 
@@ -36,7 +37,7 @@ const SideBar: React.FC = () => {
     <div className={styles.nav}>
       <img className={styles.logo} src={logo} alt="logo" />
 
-      {!isLoginOrRegisterPage && (
+      {isAuth && (
         <>
           <NavLink to="/">
             <img
@@ -64,7 +65,7 @@ const SideBar: React.FC = () => {
         </>
       )}
 
-      {!isLoginOrRegisterPage && (
+      {isAuth && (
         <div className={styles.userBlock}>
           <div className={styles.userName}>
             {' '}
