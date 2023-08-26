@@ -1,4 +1,3 @@
-import { RootState } from './../store';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import {
   IMovie,
@@ -10,7 +9,7 @@ import { IMovieFull } from '../../types/movieFull';
 import { IGenre, MovieMoney } from '../../types/queries';
 import { IState } from '../features/types';
 
-const API_KEY = '0774af9c-1989-4870-85c9-0286bd8e4c05';
+const API_KEY = process.env.REACT_APP_KINOPOISK_API_KEY;
 
 const generateMovieQuery = (type: string, page = '1') => ({
   url: '/top',

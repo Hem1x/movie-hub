@@ -13,8 +13,11 @@ import {
 import FavoritesPage from './pages/FavoritesPage/FavoritesPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
+import { useAuth } from './hooks/useAuth';
 
 const App = () => {
+  const { isAuth } = useAuth();
+
   return (
     <>
       <div
@@ -23,26 +26,34 @@ const App = () => {
         }}>
         <SideBar />
         <div className="wrapper">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route
-              path="/popular-list"
-              element={<ListMoviePage queryHook={useGetPopularMoviesQuery} />}
-            />
-            <Route
-              path="/await-list"
-              element={<ListMoviePage queryHook={useGetAwaitMoviesQuery} />}
-            />
-            <Route
-              path="/top-list"
-              element={<ListMoviePage queryHook={useGetTopMoviesQuery} />}
-            />
-            <Route path="/movie/:id" element={<SingleMovie />} />
-            <Route path="/search" element={<SearchPage />} />
-            <Route path="/favorites" element={<FavoritesPage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/register" element={<RegisterPage />} />
-          </Routes>
+          {isAuth && (
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route
+                path="/popular-list"
+                element={<ListMoviePage queryHook={useGetPopularMoviesQuery} />}
+              />
+              <Route
+                path="/await-list"
+                element={<ListMoviePage queryHook={useGetAwaitMoviesQuery} />}
+              />
+              <Route
+                path="/top-list"
+                element={<ListMoviePage queryHook={useGetTopMoviesQuery} />}
+              />
+              <Route path="/movie/:id" element={<SingleMovie />} />
+              <Route path="/search" element={<SearchPage />} />
+              <Route path="/favorites" element={<FavoritesPage />} />
+            </Routes>
+          )}
+
+          {!isAuth && (
+            <Routes>
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/register" element={<RegisterPage />} />
+              <Route path="/*" element={<LoginPage />} />
+            </Routes>
+          )}
         </div>
       </div>
     </>
