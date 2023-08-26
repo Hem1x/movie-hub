@@ -27,3 +27,8 @@ https://movie-oc3jtehgy-hem1x.vercel.app/
 ![image 3](./demo/3.jpg)
 ![image 4](./demo/4.jpg)
 ![image 5](./demo/5.jpg)
+
+# Тестовые данные
+
+Логин: admin@gmail.com
+Пароль: adminAD
