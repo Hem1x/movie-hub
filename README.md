@@ -18,7 +18,7 @@ MovieHub - это веб-приложение для истинных ценит
 
 # Ссылка на проект
 
-https://movie-oc3jtehgy-hem1x.vercel.app/
+https://movie-hub-kohl.vercel.app/
 
 # Приложение
 
